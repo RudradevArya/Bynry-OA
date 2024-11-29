@@ -25,7 +25,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirect to home page after login
+                return redirect('home')  # go to home
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
