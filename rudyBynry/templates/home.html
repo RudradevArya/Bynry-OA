@@ -1,18 +1,19 @@
+
 {% extends 'base.html' %}
 
+{% block title %}Home - Rudys Gas Utility Service{% endblock %}
+
 {% block content %}
-<h1>Welcome to Gas Utility Service</h1>
+<h2>Welcome to Rudys-Gas Utility Service</h2>
 {% if user.is_authenticated %}
     <p>Hello, {{ user.username }}!</p>
-    <h2>Your Dashboard</h2>
+    <h3>Your Dashboard</h3>
     <ul>
         <li><a href="{% url 'submit_request' %}">Submit a Service Request</a></li>
         <li><a href="{% url 'request_list' %}">View Your Service Requests</a></li>
-        <li><a href="#">Update Account Information</a></li>
-    </ul>
-{% else %}
-    <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'register' %}">register</a> to access your account.</p>
-{% endif %}
+        {% if user.is_staff %}
+            <li><a href="{% url 'support_dashboard' %}">Support Dashboard</a></li>
+        {% endif %}
         {% comment %} <li><a href="#">Submit a Service Request</a></li>
         <li><a href="#">View Your Service Requests</a></li>
         <li><a href="#">Update Account Information</a></li> {% endcomment %}
@@ -20,4 +21,8 @@
 {% else %}
     <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'register' %}">register</a> to access your account.</p>
 {% endif %} {% endcomment %}
+    </ul>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'register' %}">register</a> to access your account.</p>
+{% endif %}
 {% endblock %}
