@@ -49,6 +49,9 @@ DEFAULT_FROM_EMAIL = 'noreply@example.com'
 
 LOGIN_REDIRECT_URL = 'home'  # will go to home agfter login
 
+
+# CSRF_FAILURE_VIEW = 'your_app.views.csrf_failure'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
