@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'service_requests',
 ]
 
-AUTH_USER_MODEL = 'accounts.CustomUser' /////
+AUTH_USER_MODEL = 'accounts.CustomUser' #added to creatrets user model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'rudyBynry.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

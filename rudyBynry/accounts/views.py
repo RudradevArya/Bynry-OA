@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
@@ -29,3 +30,12 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
+
+from django.shortcuts import render
+
+# def home(request):
+#     return render(request, 'home.html')
+
+@login_required
+def home(request):
+    return render(request, 'home.html')
