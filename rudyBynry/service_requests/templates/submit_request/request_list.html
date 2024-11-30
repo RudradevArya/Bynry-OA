@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Service Requests</h2>
+{% if requests %}
+    <ul>
+    {% for request in requests %}
+        <li>
+            {{ request.request_type }} - {{ request.status }}
+            <br>
+            Submitted on: {{ request.created_at }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no service requests.</p>
+{% endif %}
+<a href="{% url 'submit_request' %}">Submit a new request</a>
+{% endblock %}

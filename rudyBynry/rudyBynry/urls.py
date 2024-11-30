@@ -25,4 +25,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('', home, name='home'),
     path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
+    
+    # serviec rewqs added
+    path('service-requests/', include('service_requests.urls')),
 ]
