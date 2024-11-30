@@ -6,7 +6,11 @@
     <ul>
     {% for request in requests %}
         <li>
-            {{ request.request_type }} - {{ request.status }}
+            <a href="{% url 'request_detail' request.pk %}">
+                {{ request.request_type }} - {{ request.get_status_display }}
+            </a>
+            <br>
+            Priority: {{ request.get_priority_display }}
             <br>
             Submitted on: {{ request.created_at }}
         </li>

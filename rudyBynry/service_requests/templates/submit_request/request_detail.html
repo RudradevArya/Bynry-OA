@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Service Request Details</h2>
+<p><strong>Type:</strong> {{ request.request_type }}</p>
+<p><strong>Description:</strong> {{ request.description }}</p>
+<p><strong>Status:</strong> {{ request.get_status_display }}</p>
+<p><strong>Priority:</strong> {{ request.get_priority_display }}</p>
+<p><strong>Submitted on:</strong> {{ request.created_at }}</p>
+<p><strong>Last updated:</strong> {{ request.updated_at }}</p>
+<a href="{% url 'request_list' %}">Back to list</a>
+{% endblock %}

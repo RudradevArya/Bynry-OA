@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Support Dashboard</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Created</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.request_type }}</td>
+            <td>{{ request.user.username }}</td>
+            <td>{{ request.get_status_display }}</td>
+            <td>{{ request.get_priority_display }}</td>
+            <td>{{ request.created_at }}</td>
+            <td><a href="{% url 'update_request' request.pk %}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

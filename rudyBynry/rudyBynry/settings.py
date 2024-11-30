@@ -43,6 +43,10 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'accounts.CustomUser' #added to creatrets user model
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'noreply@example.com'
+# dummy for trial only
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
